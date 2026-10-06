@@ -1,0 +1,318 @@
+﻿/* Importar la fuente Avería Serif Libre desde Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+
+/* =========================================
+   1. Variables y Patrones Visuales
+========================================= */
+:root {
+    --bg-color: #121212;
+    --surface-color: #1e1e1e;
+    --text-main: #f5f5f5;
+    --text-muted: #a0a0a0;
+    --accent-color: #1B9696; /* Tu color principal */
+    /* Jerarquía Tipográfica */
+    --font-titulos: 'Averia Serif Libre', serif;
+    --font-cuerpo: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    /* Borde redondeado unificado basado en tu logotipo */
+    --radio-borde: 12px;
+}
+
+/* =========================================
+   2. Reseteo y Accesibilidad Base
+========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: var(--font-cuerpo);
+    line-height: 1.6;
+    scroll-behavior: smooth;
+}
+
+/* =========================================
+   3. Arquitectura y Navegación
+========================================= */
+header {
+    background-color: var(--surface-color);
+    padding: 1rem 5%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center; /* Centra verticalmente la imagen y el texto */
+    gap: 20px; /* Añade una separación limpia entre el logo y la palabra */
+    font-family: var(--font-titulos);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--accent-color);
+}
+
+    .logo img {
+        height: 50px; /* Modifica este número si necesitas que el logo se vea más grande o más pequeño */
+        width: auto;
+    }
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+nav a {
+    font-size: 1.1rem;
+    text-decoration: none;
+    color: var(--text-main);
+    font-weight: 500;
+    display: inline-block; /* Necesario para que la transformación funcione */
+    /* La transición ahora anima tanto el color como la posición */
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+    nav a:hover {
+        color: var(--accent-color);
+        transform: translateY(-3px); /* Eleva el texto 3 píxeles suavemente */
+    }
+
+/* =========================================
+   4. Secciones y Espaciado
+========================================= */
+section {
+    padding: 5rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Regla general para forzar tipografía y Bold en títulos */
+h1, h2, h3 {
+    font-family: var(--font-titulos);
+    color: var(--text-main);
+    font-weight: 700;
+}
+
+h1 {
+    font-size: 3.5rem;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+}
+
+h2 {
+    font-size: 2.5rem;
+    border-bottom: 2px solid var(--accent-color);
+    display: inline-block;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+ul {
+    padding-left: 1.5rem;
+}
+
+li {
+    margin-bottom: 0.5rem;
+}
+
+/* =========================================
+   5. Diseño Responsivo: Grid de Proyectos
+========================================= */
+.galeria-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+/* Diseño para Desktop: 2 columnas, donde el primer hijo abarca todo el ancho */
+@media (min-width: 900px) {
+    .galeria-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Expande la primera tarjeta para que ocupe desde la línea 1 hasta el final */
+     .galeria-grid .proyecto-card:first-child {
+          grid-column: 1 / -1; /* Ocupa toda la fila */
+     }
+}
+
+.proyecto-card {
+    background-color: var(--surface-color);
+    border-radius: var(--radio-borde);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+    .proyecto-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 15px rgba(27, 150, 150, 0.2); /* Sombra adaptada a tu color */
+    }
+
+    .proyecto-card img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        display: block;
+        background-color: #2a2a2a; /* Color de fondo por si la imagen tarda en cargar */
+    }
+
+    .proyecto-card h3 {
+        padding: 1rem 1rem 0.2rem;
+        font-size: 1.6rem;
+    }
+
+    .proyecto-card p {
+        padding: 0 1rem 1rem;
+        color: var(--text-muted);
+        font-size: 0.9rem;
+    }
+
+/* =========================================
+   6. Botones e Interacción (UI)
+========================================= */
+/* Dentro de la sección 6. Botones e Interacción (UI) */
+.boton-contacto {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: #fff;
+    padding: 0.8rem 2rem;
+    border-radius: var(--radio-borde);
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 1rem;
+    /* Preparamos el terreno para animar el color de fondo, la opacidad y la sombra */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+    .boton-contacto:hover {
+        background-color: #157a7a; /* Un tono ligeramente más oscuro de tu #1B9696 */
+        transform: translateY(-2px); /* Se eleva un poco al igual que el menú */
+        box-shadow: 0 5px 15px rgba(27, 150, 150, 0.4); /* Resplandor usando tu color */
+    }
+
+footer {
+    text-align: center;
+    padding: 2rem;
+    background-color: var(--surface-color);
+    color: var(--text-muted);
+}
+
+/* =========================================
+   7. Media Queries (Adaptación a Móviles)
+========================================= */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+        nav ul {
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+    section {
+        padding: 3rem 5%;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+}
+
+/* =========================================
+   Componentes Visuales: Redes Sociales
+========================================= */
+.contacto-contenedor {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap; /* Permite que colapsen en pantallas pequeñas */
+}
+
+.redes-sociales {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+    .redes-sociales a {
+        display: inline-block;
+    }
+
+    /* Diseño vectorial SVG */
+    .redes-sociales svg {
+        width: 32px;
+        height: 32px;
+        fill: var(--text-main); /* Empieza con el color de tu texto claro */
+        transition: fill 0.3s ease, transform 0.3s ease;
+    }
+
+    /* Interacción al pasar el cursor */
+    .redes-sociales a:hover svg {
+        fill: var(--accent-color); /* Cambia al color 1B9696 */
+        transform: translateY(-3px);
+    }
+
+/* Ajustes específicos para el Footer */
+.footer-redes {
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+    .footer-redes svg {
+        width: 24px; /* Un poco más pequeños en el footer para respetar la jerarquía */
+        height: 24px;
+        fill: var(--text-muted); /* Más tenues en el footer */
+    }
+
+    .footer-redes a:hover svg {
+        fill: var(--accent-color);
+    }
+
+/* Estilos para los botones superpuestos en el visor 3D */
+/*.controles-texturas {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    background: rgba(20, 20, 20, 0.8);
+    padding: 10px;
+    border-radius: 8px;
+    backdrop-filter: blur(4px);
+}
+
+    .controles-texturas button {
+        background: #333;
+        color: #fff;
+        border: 1px solid #555;
+        padding: 8px 16px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 0.9rem;
+        transition: background-color 0.3s ease;
+    }
+
+        .controles-texturas button:hover {
+            background: #0078D4;*/ /* Color de acento al pasar el ratón */
+        /*}*/

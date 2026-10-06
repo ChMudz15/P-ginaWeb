@@ -1,0 +1,184 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio de Arte Digital | CHRIS-MUDZ</title>
+
+    <!-- Etiqueta para el Favicon -->
+    <link rel="icon" type="image/svg" href="assets/marcaElementos/LogoColor.png">
+
+    <!-- Enlace a nuestra hoja de estilos -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Script oficial de Model Viewer -->
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
+</head>
+
+<body>
+
+    <!-- Encabezado y Navegación principal -->
+    <header>
+        <nav aria-label="Navegación principal">
+            <div class="logo">
+                <img src="assets/marcaElementos/LogoColor.png" alt="Logotipo de CHRIS-MUDZ">
+                <span>Chris Mudz Art</span>
+            </div>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#proyectos">Portafolio</a></li>
+                <li><a href="#flujo-trabajo">Pipeline</a></li>
+                <li><a href="#sobre-mi">Sobre Mí</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Contenido principal -->
+    <main>
+
+        <!-- Sección de impacto visual -->
+        <section id="inicio">
+            <h1>Arte Digital y Modelado 3D</h1>
+            <p>Especialista en creación de props, personajes y optimización técnica para la industria audiovisual y de videojuegos.</p>
+        </section>
+
+        <!-- Galería de Proyectos (Sistema de diseño responsivo) -->
+        <section id="proyectos">
+            <h2>Portafolio</h2>
+            
+            <div class="galeria-grid">
+                <!-- Proyecto 1 -->
+                <article class="proyecto-card">
+                    <model-viewer id="Piramide"
+                                  src="assets/models/Piramide.glb"
+                                  alt="Modelo 3D interactivo"
+                                  auto-rotate
+                                  camera-controls
+                                  shadow-intensity="1"
+                                  style="width: 100%; height: 600px; background-color: #1e1e1e; border-radius: 8px;">
+                    </model-viewer>
+                        <h3>Personaje Estilizado</h3>
+                        <p>Esculpido y modelado base enfocado en silueta y proporciones.</p>
+                </article>
+
+                <!-- Proyecto 2 -->
+                <article class="proyecto-card">
+                    <!-- Configuración del visor 3D -->
+                    <model-viewer id="Pilar"
+                                  src="assets/models/pilar.glb"
+                                  alt="Modelo 3D interactivo"
+                                  auto-rotate
+                                  camera-controls
+                                  shadow-intensity="1"
+                                  style="width: 100%; height: 350px; background-color: #1e1e1e; border-radius: 8px;">
+
+                        <!-- Botones para intercambiar mapas -->
+                        <!--<div class="controles-texturas">
+                            <button onclick="cambiarTextura('Piramide', 'assets/texturas/albedo.jpg')">Base Color</button>
+                            <button onclick="cambiarTextura('Piramide', 'assets/texturas/wireframe.png')">Wireframe</button>
+                            <button onclick="cambiarTextura('Piramide', 'assets/texturas/ao.jpg')">Ambient Occlusion</button>
+                        </div>-->
+                    </model-viewer>
+
+                    <h3>Prop Hard Surface</h3>
+                    <p>Malla optimizada con desdoble de UVs listo para texturizado.</p>
+                </article>
+
+                <!-- Proyecto 3 -->
+                <article class="proyecto-card">
+                    <model-viewer id="Puente"
+                                  src="assets/models/puente.glb"
+                                  alt="Modelo 3D interactivo"
+                                  auto-rotate
+                                  camera-controls
+                                  shadow-intensity="1"
+                                  style="width: 100%; height: 350px; background-color: #1e1e1e; border-radius: 8px;">
+                    </model-viewer>
+                        <h3>Asset para Producción</h3>
+                        <p>Texturizado PBR y configuración de materiales para integración.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Información de Contacto -->
+        <section id="sobre-mi">
+            <h2>Sobre Mí</h2>
+            <p>
+                Artista digital en formación. Orientado a la resolución de problemas técnicos dentro del desarrollo 3D, combinando
+                sensibilidad artística con rigor técnico en cada etapa de producción.
+            </p>
+
+            <div class="contacto-contenedor">
+                <a href="mailto:chris.mudz.art15@outlook.com" class="boton-contacto">Contactar</a>
+
+                <!-- Redes Sociales usando SVGs puros -->
+                <div class="redes-sociales">
+                    <!-- ArtStation -->
+                    <a href="https://chrismudz.artstation.com/"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       aria-label="Perfil de ArtStation">
+
+                        <svg viewBox="0 0 24 24"
+                             xmlns="http://www.w3.org/2000/svg"
+                             fill="currentColor">
+
+                            <path d="M0 17.723l2.027 3.505h.001a2.424 2.424 0 0 0 2.164 1.333h13.457l-2.792-4.838H0zm24
+                                  .025c0-.484-.143-.935-.388-1.314L15.728 2.728a2.424 2.424 0 0 0-2.142-1.289H9.419L21.598
+                                  22.54l1.92-3.325c.378-.637.482-.919.482-1.467zm-11.129-3.462L7.428 4.858l-5.444 9.428h10.887z" />
+                        </svg>
+                    </a>
+                    <!-- Instagram -->
+                    <a href="https://www.instagram.com/chrismudz?igsi=dDl1cmo2Z2k1NXJu" target="_blank" rel="noopener noreferrer" aria-label="Perfil de Instagram">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069
+                                  4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919
+                                  4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849
+                                  0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014
+                                  7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98
+                                  6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948
+                                  0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162
+                                  6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.88z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>&copy; 2026 CMUDZ. Todos los derechos reservados.</p>
+        <div class="redes-sociales footer-redes">
+            <!-- Pega aquí los mismos 2 <a href="..."> con sus <svg> que arriba para tenerlos también en el footer -->
+            <a href="https://www.artstation.com/chrismudz"
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="Perfil de ArtStation">
+
+                <svg viewBox="0 0 20 20"
+                     xmlns="http://www.w3.org/2000/svg"
+                     fill="currentColor">
+
+                    <path d="M0 17.723l2.027 3.505h.001a2.424 2.424 0 0 0 2.164 1.333h13.457l-2.792-4.838H0zm24 .025c0-.484-.143-.935-.388-1.314L15.728 2.728a2.424 2.424 0 0 
+                          0-2.142-1.289H9.419L21.598 22.54l1.92-3.325c.378-.637.482-.919.482-1.467zm-11.129-3.462L7.428 4.858l-5.444 9.428h10.887z" />
+                </svg>
+            </a>
+            <!-- Instagram -->
+            <a href="https://www.instagram.com/chrismudz?igsi=dDl1cmo2Z2k1NXJu" target="_blank" rel="noopener noreferrer" aria-label="Perfil de Instagram">
+                <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664
+                          4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 
+                          0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 
+                          7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2
+                          6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162
+                          6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.88z" />
+                </svg>
+            </a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
