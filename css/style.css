@@ -288,6 +288,53 @@ footer {
         fill: var(--accent-color);
     }
 
+/* =========================================
+   Ajustes de la Sección de Inicio
+========================================= */
+
+/* 1. Reducir el espacio inferior de la introducción */
+#inicio {
+    padding-bottom: 2rem;
+}
+
+/* 2. Reducir el espacio superior del portafolio */
+#proyectos {
+    padding-top: 2rem;
+}
+
+/* 3. Aumentar letra, limitar ancho y separar párrafos en ambas secciones */
+#inicio p, #sobre-mi p {
+    font-size: 1.25rem;
+    line-height: 1.8;
+    max-width: 900px;
+    margin-bottom: 1.5rem;
+}
+
+    /* 4. Elimina el margen del último párrafo para no generar espacios vacíos extra */
+    #inicio p:last-of-type, #sobre-mi p:last-of-type {
+        margin-bottom: 0;
+    }
+
+/* =========================================
+   Ajustes de Títulos (h3) en Portafolio
+========================================= */
+
+/* 1. Subtítulo general de la sección (Fuera de la tarjeta) */
+#proyectos > h3 {
+    font-size: 1.6rem;
+    color: var(--text-muted); /* Un tono más suave para no opacar al h2 "Portafolio" */
+    margin-top: -0.5rem; /* Lo acerca sutilmente a la línea de acento del h2 */
+    margin-bottom: 2rem; /* Genera espacio para que no aplaste a la tarjeta 3D */
+    font-weight: 400; /* Le quita peso visual para distinguirlo */
+}
+
+/* 2. Títulos individuales dentro de las tarjetas 3D */
+.proyecto-card h3 {
+    font-size: 1.7rem; /* Aumenta el tamaño del título interno */
+    padding: 1.5rem 1rem 0.5rem; /* Respira mejor respecto al borde del visor 3D */
+    color: var(--accent-color); /* Opcional: Puedes usar tu color #1B9696 para resaltarlo */
+}
+
 /* Estilos para los botones superpuestos en el visor 3D */
 /*.controles-texturas {
     position: absolute;
