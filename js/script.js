@@ -1,22 +1,32 @@
-//async function cambiarTextura(modeloId, rutaTextura) {
-//    const visor = document.getElementById(modeloId);
+// Funcionalidad del Modal / Lightbox para agrandar imágenes
+document.addEventListener('DOMContentLoaded', () => {
+    const modal = document.getElementById("modalImagen");
+    const modalImg = document.getElementById("imgExpandida");
+    const captionText = document.getElementById("lightbox-texto");
+    const cerrarBtn = document.querySelector(".cerrar-lightbox");
 
-//    // Verifica si el modelo y sus materiales ya están completamente cargados
-//    if (!visor.model || !visor.model.materials[0]) {
-//        console.warn("El modelo aún no está listo.");
-//        return;
-//    }
+    // Busca automáticamente TODAS las imágenes dentro de la clase .render-card
+    const imagenes = document.querySelectorAll(".render-card img");
 
-//    // Selecciona el primer material de tu archivo .glb
-//    const material = visor.model.materials[0];
+    imagenes.forEach(img => {
+        img.addEventListener("click", function () {
+            modal.style.display = "block"; // Muestra el fondo oscuro
+            modalImg.src = this.src;       // Carga la misma imagen a la que se le dio clic
+            captionText.innerHTML = this.alt; // Usa el atributo 'alt' de la imagen como título
+        });
+    });
 
-//    try {
-//        // Genera la textura en el motor desde tu archivo JPG/PNG
-//        const nuevaTextura = await visor.createTexture(rutaTextura);
+    // Cierra el modal si le dan clic a la 'X'
+    if (cerrarBtn) {
+        cerrarBtn.addEventListener("click", () => {
+            modal.style.display = "none";
+        });
+    }
 
-//        // Aplica la nueva textura al canal de color base
-//        material.pbrMetallicRoughness.baseColorTexture.setTexture(nuevaTextura);
-//    } catch (error) {
-//        console.error("Error al cargar la textura:", error);
-//    }
-//}
+    // Cierra el modal si le dan clic en cualquier parte del fondo oscuro (fuera de la imagen)
+    window.addEventListener("click", (e) => {
+        if (e.target === modal) {
+            modal.style.display = "none";
+        }
+    });
+});

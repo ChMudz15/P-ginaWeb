@@ -98,7 +98,7 @@ section {
 }
 
 /* Regla general para forzar tipografía y Bold en títulos */
-h1, h2, h3 {
+h1, h2, h3, h4 {
     font-family: var(--font-titulos);
     color: var(--text-main);
     font-weight: 700;
@@ -111,11 +111,23 @@ h1 {
 }
 
 h2 {
-    font-size: 2.5rem;
+    font-size: 2.8rem;
     border-bottom: 2px solid var(--accent-color);
     display: inline-block;
     padding-bottom: 0.5rem;
     margin-bottom: 1.5rem;
+}
+
+h3 {
+    margin-bottom: 1.5rem;
+    font-weight: 300;
+    font-size: 1.8rem;
+}
+
+h4 {
+    margin-bottom: 1.25rem;
+    font-weight: 300;
+    font-size: 1.5rem;
 }
 
 ul {
@@ -297,17 +309,23 @@ footer {
     padding-bottom: 2rem;
 }
 
-/* 2. Reducir el espacio superior del portafolio */
+/* 2. Reducir el espacio superior del portafolio y matar el espacio inferior */
 #proyectos {
     padding-top: 2rem;
+    padding-bottom: 0; /* NUEVO: Elimina el hueco debajo de la línea divisoria */
+}
+
+/* NUEVO: Reducir el espacio superior de Sobre Mí */
+#sobre-mi {
+    padding-top: 1.5rem; /* Empuja tu biografía hacia arriba */
 }
 
 /* 3. Aumentar letra, limitar ancho y separar párrafos en ambas secciones */
 #inicio p, #sobre-mi p {
-    font-size: 1.25rem;
+    font-size: 1.1rem;
     line-height: 1.8;
     max-width: 900px;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.4rem;
 }
 
     /* 4. Elimina el margen del último párrafo para no generar espacios vacíos extra */
@@ -316,23 +334,125 @@ footer {
     }
 
 /* =========================================
-   Ajustes de Títulos (h3) en Portafolio
+   Grid Específico para 3 Renders en Fila
 ========================================= */
-
-/* 1. Subtítulo general de la sección (Fuera de la tarjeta) */
-#proyectos > h3 {
-    font-size: 1.6rem;
-    color: var(--text-muted); /* Un tono más suave para no opacar al h2 "Portafolio" */
-    margin-top: -0.5rem; /* Lo acerca sutilmente a la línea de acento del h2 */
-    margin-bottom: 2rem; /* Genera espacio para que no aplaste a la tarjeta 3D */
-    font-weight: 400; /* Le quita peso visual para distinguirlo */
+.galeria-renders-tres-columnas {
+    display: grid;
+    /* En PC: 3 columnas. En móvil: 1 columna */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2.5rem; /* Da aire antes de que empiecen los modelos 3D */
 }
 
-/* 2. Títulos individuales dentro de las tarjetas 3D */
-.proyecto-card h3 {
-    font-size: 1.7rem; /* Aumenta el tamaño del título interno */
-    padding: 1.5rem 1rem 0.5rem; /* Respira mejor respecto al borde del visor 3D */
-    color: var(--accent-color); /* Opcional: Puedes usar tu color #1B9696 para resaltarlo */
+.render-card {
+    background-color: #1e1e1e;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+    .render-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .render-card img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover; /* Evita que las imágenes se deformen */
+        display: block;
+    }
+
+.render-info {
+    padding: 1rem;
+    text-align: center;
+}
+
+    .render-info h4 {
+        margin: 0;
+        font-size: 1.1rem;
+        color: #ffffff;
+        font-weight: 400;
+    }
+
+/* =========================================
+   9. Modal / Lightbox para Imágenes
+========================================= */
+.render-card img {
+    cursor: pointer;
+}
+
+/* El fondo oscuro */
+.modal-lightbox {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(18, 18, 18, 0.95);
+    backdrop-filter: blur(5px);
+    /* Nota: Se eliminó el padding-top para que no empuje la imagen */
+}
+
+/* La imagen agrandada (Centrado vertical y horizontal absoluto) */
+.lightbox-contenido {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Esta es la fórmula del centrado perfecto */
+
+    max-width: 80%;
+    max-height: 80vh; /* Permite que ocupe hasta el 90% del alto de la pantalla */
+    border-radius: 4px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.9);
+    animation: zoomIn 0.3s ease forwards;
+}
+
+/* El texto descriptivo (Oculto) */
+#lightbox-texto {
+    display: none !important;
+}
+
+/* Botón de cerrar (La 'X' en la esquina superior) */
+.cerrar-lightbox {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: var(--text-muted);
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    z-index: 2001; /* Asegura que la 'X' nunca quede detrás de la imagen */
+}
+
+    .cerrar-lightbox:hover {
+        color: var(--accent-color);
+    }
+
+/* Animación fluida adaptada al centrado */
+@keyframes zoomIn {
+    from {
+        transform: translate(-50%, -50%) scale(0.95);
+        opacity: 0;
+    }
+
+    to {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+}
+
+/* =========================================
+   4. Secciones y Espaciado
+========================================= */
+/* ... tus estilos de h1, h2, etc. ... */
+
+p {
+    font-size: 1.1rem; /* Este será el tamaño general. 1rem suele equivaler a 16px */
+    line-height: 1.6;
+    margin-bottom: 1.25rem; /* Espaciado general entre párrafos */
 }
 
 /* Estilos para los botones superpuestos en el visor 3D */

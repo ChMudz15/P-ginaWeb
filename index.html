@@ -9,7 +9,9 @@
     <link rel="icon" type="image/svg" href="assets/marcaElementos/LogoColor.png">
 
     <!-- Enlace a nuestra hoja de estilos -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css?v=2">
+
+    <script src="js/script.js?v=2"></script>
 
     <!-- Script oficial de Model Viewer -->
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
@@ -27,7 +29,6 @@
             <ul>
                 <li><a href="#inicio">Inicio</a></li>
                 <li><a href="#proyectos">Portafolio</a></li>
-                <li><a href="#flujo-trabajo">Pipeline</a></li>
                 <li><a href="#sobre-mi">Sobre Mí</a></li>
             </ul>
         </nav>
@@ -46,71 +47,155 @@
             <p>Mi objetivo es crear modelos 3D que sean visualmente atractivos y técnicamente sólidos, listos para ser integrados en cualquier proyecto digital.</p>
         </section>
 
-        <!-- Galería de Proyectos (Sistema de diseño responsivo) -->
+<!-- Galería de Proyectos -->
         <section id="proyectos">
             <h2>Portafolio</h2>
-            <h3>Proyecto escenario - Piramide Mesoamericana</h3>
-            
-            <div class="galeria-grid">
-                <!-- Proyecto 1 -->
-                <article class="proyecto-card">
-                    <model-viewer id="Piramide"
-                                  src="assets/models/Piramide.glb"
-                                  alt="Modelo 3D interactivo"
-                                  auto-rotate
-                                  camera-controls
-                                  shadow-intensity="1"
-                                  style="width: 100%; height: 600px; background-color: #1e1e1e; border-radius: 8px;">
-                    </model-viewer>
-                        <h3>Personaje Estilizado</h3>
-                        <p>Esculpido y modelado base enfocado en silueta y proporciones.</p>
-                </article>
 
-                <!-- Proyecto 2 -->
-                <article class="proyecto-card">
-                    <!-- Configuración del visor 3D -->
-                    <model-viewer id="Pilar"
-                                  src="assets/models/pilar.glb"
-                                  alt="Modelo 3D interactivo"
-                                  auto-rotate
-                                  camera-controls
-                                  shadow-intensity="1"
-                                  style="width: 100%; height: 350px; background-color: #1e1e1e; border-radius: 8px;">
+            <!-- ==========================================
+                 PROYECTO 1: PIRÁMIDE MESOAMERICANA
+            =========================================== -->
+            <!-- Nota: Se eliminó el fondo y el padding de esta etiqueta -->
+            <article class="proyecto-destacado" style="margin-bottom: 2rem;">
+                
+                <h3>Proyecto escenario - Pirámide Mesoamericana</h3>
+                <p>
+                    Desarrollo completo de un entorno modular inspirado en Chicén Itzá. Este proyecto incluye el modelado base de la 
+                    estructura principal y los assets arquitectónicos complementarios (pilares y puentes). Enfocado en la 
+                    optimización de geometría y el uso de texturas PBR para mantener la calidad visual.
+                </p>
+                <!-- Un solo subtítulo para agrupar las imágenes -->
+                <h4>
+                    Renders Finales
+                </h4>
 
-                        <!-- Botones para intercambiar mapas -->
-                        <!--<div class="controles-texturas">
-                            <button onclick="cambiarTextura('Piramide', 'assets/texturas/albedo.jpg')">Base Color</button>
-                            <button onclick="cambiarTextura('Piramide', 'assets/texturas/wireframe.png')">Wireframe</button>
-                            <button onclick="cambiarTextura('Piramide', 'assets/texturas/ao.jpg')">Ambient Occlusion</button>
-                        </div>-->
-                    </model-viewer>
+                <!-- Tus 3 Renders en una Fila (Con fondo oscuro individual) -->
+                <div class="galeria-renders-tres-columnas">
+                    <!-- Render 1 -->
+                    <article class="render-card" style="background-color: var(--surface-color);">
+                        <img src="assets/models/Renders/RenderIlumi1.jpg" alt="Render frontal de la pirámide" loading="lazy">
+                    </article>
+                    
+                    <!-- Render 2 -->
+                    <article class="render-card" style="background-color: var(--surface-color);">
+                        <img src="assets/models/Renders/RenderIlumi2.jpg" alt="Detalle lateral de la pirámide" loading="lazy">
+                    </article>
 
-                    <h3>Prop Hard Surface</h3>
-                    <p>Malla optimizada con desdoble de UVs listo para texturizado.</p>
-                </article>
+                    <!-- Render 3 -->
+                    <article class="render-card" style="background-color: var(--surface-color);">
+                        <img src="assets/models/Renders/RenderIlumi3.jpg" alt="Vista posterior de la pirámide" loading="lazy">
+                    </article>
+                </div>
 
-                <!-- Proyecto 3 -->
-                <article class="proyecto-card">
-                    <model-viewer id="Puente"
-                                  src="assets/models/puente.glb"
-                                  alt="Modelo 3D interactivo"
-                                  auto-rotate
-                                  camera-controls
-                                  shadow-intensity="1"
-                                  style="width: 100%; height: 350px; background-color: #1e1e1e; border-radius: 8px;">
-                    </model-viewer>
-                        <h3>Asset para Producción</h3>
-                        <p>Texturizado PBR y configuración de materiales para integración.</p>
-                </article>
-            </div>
-        </section>
+                <!-- Un solo subtítulo para agrupar los modelos -->
+                <h4>
+                    Assets 3D
+                </h4>
+
+                <!-- Galería de Modelos 3D Interactivos -->
+                <div class="galeria-grid">
+                    <!-- Proyecto 1: Pirámide -->
+                    <article class="proyecto-card" style="background-color: var(--surface-color);">
+                        <model-viewer id="Piramide"
+                                      src="assets/models/Piramide.glb"
+                                      alt="Modelo 3D interactivo"
+                                      auto-rotate
+                                      camera-controls
+                                      shadow-intensity="1"
+                                      style="width: 100%; height: 600px; background-color: #1e1e1e; border-radius: 8px 8px 0 0;">
+                        </model-viewer>
+                        <h3 style="margin: 1.5rem 1.5rem 0.5rem; color: var(--accent-color);">Estructura Principal - El castillo</h3>
+                        <p style="margin: 0 1.5rem 1.5rem; color: var(--text-muted); font-size: 0.95rem;">
+                            Esculpido y modelado base enfocado en silueta y proporciones, basado en la arquitectura maya, el templo de 
+                            Kukulkan.
+                        </p>
+                    </article>
+
+                    <!-- Proyecto 2: Pilar -->
+                    <article class="proyecto-card" style="background-color: var(--surface-color);">
+                        <model-viewer id="Pilar"
+                                      src="assets/models/pilar.glb"
+                                      alt="Modelo 3D interactivo"
+                                      auto-rotate
+                                      camera-controls
+                                      shadow-intensity="1"
+                                      style="width: 100%; height: 350px; background-color: #1e1e1e; border-radius: 8px 8px 0 0;">
+                        </model-viewer>
+                        <h4 style="margin: 1.5rem 1.5rem 0.5rem; color: var(--accent-color);">Prop Modular - Pilar</h4>
+                        <p style="margin: 0 1.5rem 1.5rem; color: var(--text-muted); font-size: 0.95rem;">Malla optimizada con desdoble de UVs y texturizado PBR.</p>
+                    </article>
+
+                    <!-- Proyecto 3: Puente -->
+                    <article class="proyecto-card" style="background-color: var(--surface-color);">
+                        <model-viewer id="Puente"
+                                      src="assets/models/puente.glb"
+                                      alt="Modelo 3D interactivo"
+                                      auto-rotate
+                                      camera-controls
+                                      shadow-intensity="1"
+                                      style="width: 100%; height: 350px; background-color: #1e1e1e; border-radius: 8px 8px 0 0;">
+                        </model-viewer>
+                        <h4 style="margin: 1.5rem 1.5rem 0.5rem; color: var(--accent-color);">Prop Modular - Puente</h4>
+                        <p style="margin: 0 1.5rem 1.5rem; color: var(--text-muted); font-size: 0.95rem;">Malla optimizada con desdoble de UVs y texturizado PBR.</p>
+                    </article>
+                </div>
+
+                <!-- Desglose Técnico -->
+                <div class="desglose-tecnico" style="margin-top: 1.5rem; padding-top: 2rem;">
+                    <h4>Desglose Técnico</h4>
+                    <p>
+                        El flujo de trabajo se centró en la creación de un entorno modular optimizado para motores de tiempo real. usando como referencia
+                        El castillo o el Templo de Kukulkan, en un escenario diferente con un lago a un costado y elementos arquitectonicos como los pilares que 
+                        están alineados hacia el templo, y un puente de piedra en el río. 
+                    </p>
+                    <p>
+                        Se priorizó la eficiencia en la geometría y la calidad visual mediante el uso de texturas PBR, asegurando que los modelos sean aptos 
+                        para animación y renderizado en tiempo real.
+                    </p>    
+
+                    <div class="specs-grid">
+    
+                        <!-- Spec 1: Software -->
+                            <div class="spec-card" style="background-color: var(--surface-color);">
+                                <h5 style="color: var(--accent-color); margin-bottom: 0.5rem; font-size: 1.3rem;">Stack de Software</h5>
+                                <ul style="margin: 0; padding-left: 1.2rem; font-size: 1.1rem;">
+                                    <li>Blender (Modelado base y Retopología)</li>
+                                    <li>Substance 3D Painter (Texturizado PBR)</li>
+                                    <li>Maya3D (Despliegue de UVs)</li>
+                                </ul>
+                            </div>
+    
+                        <!-- Spec 2: Geometría -->
+                            <div class="spec-card" style="background-color: var(--surface-color);">
+                                <h5 style="color: var(--accent-color); margin-bottom: 0.5rem; font-size: 1.3rem;">Optimización</h5>
+                                <ul style="margin: 0; padding-left: 1.2rem; font-size: 1.1rem;">
+                                    <li>Flujo de trabajo Low-Poly</li>
+                                    <li>Topología apta para animación/motores</li>
+                                </ul>
+                            </div>
+    
+                       <!-- Spec 3: Texturas -->
+                            <div class="spec-card" style="background-color: var(--surface-color);">
+                                <h5 style="color: var(--accent-color); margin-bottom: 0.5rem; font-size: 1.3rem;">Materiales</h5>
+                                <ul style="margin: 0; padding-left: 1.2rem; font-size: 1.1rem;">
+                                    <li>Texturas PBR a 2K</li>
+                                    <li>(Roughness, Height, Normal, Roughness, Metallic)</li>
+                                </ul>
+                            </div>
+
+                        </div>  
+                </div>
+            </article>
+
+            <!-- style="margin: 1rem 0; border: none; border-top: 1px solid var(--accent-color); width: 100%;"> -->
+
+        </section> 
 
         <!-- Información de Contacto -->
         <section id="sobre-mi">
             <h2>Sobre Mí</h2>
             <p>Soy Chris Mudz, un artista digital que usa en especial las herramientas 3D para crear los cimientos de un nuevo mundo con el que se contará una historia, así el público se sumerja en ella, 
                 dándose un escape hacia una nueva realidad, e incluso poder convertirse en algo más, estar en otra época o en otros mundos. Por lo general mi trabajo se ve influenciado por la fantasía o 
-                en algunos casos por el mundo antiguo. Creando modelos mediante el Hard Surface, pero dotándolos de vitalidad, dando cierta sensación de realidad.</p>
+                en algunos casos por el mundo antigs uo. Creando modelos mediante el Hard Surface, pero dotándolos de vitalidad, dando cierta sensación de realidad.</p>
 
             <div class="contacto-contenedor">
                 <a href="mailto:chris.mudz.art15@outlook.com" class="boton-contacto">Contactar</a>
@@ -149,6 +234,11 @@
             </div>
         </section>
 
+<!-- Modal / Lightbox para agrandar imágenes -->
+        <div id="modalImagen" class="modal-lightbox">
+            <span class="cerrar-lightbox">&times;</span>
+            <img class="lightbox-contenido" id="imgExpandida">
+        </div>
     </main>
 
     <!-- Pie de página -->
